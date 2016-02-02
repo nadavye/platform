@@ -94,7 +94,7 @@
 						</additionalClasspathElements>
 						<argLine> 
 							<!-- Update the parameters in the next line -->
-							-Dsl.config.file="../../sealights.json" -javaagent:"${user.home}/.m2/repository/io/sealights/on-premise/agents/sl-test-listener/1.0.0-alpha/sl-test-listener-1.0.0-alpha.jar"
+							-Dsl.log.enabled=true -Dsl.log.toConsole=true -Dsl.config.file="../../sealights.json" -javaagent:"${user.home}/.m2/repository/io/sealights/on-premise/agents/sl-test-listener/1.0.0-alpha/sl-test-listener-1.0.0-alpha.jar"
 						</argLine>
 						<properties>
 							<property>
