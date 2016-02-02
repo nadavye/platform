@@ -87,7 +87,7 @@
 					<configuration>
 						<additionalClasspathElements>						
 							<additionalClasspathElement>
-								<!-- Add the API JAR to the classpath. The following line assumes that the user local repository
+								<!-- Add the API JAR to the classpath. The following line assumes that the user local repository 
 								Is in the default location-->
 								${user.home}/.m2/repository/io/sealights/on-premise/agents/sl-api/1.0.0-alpha/sl-api-1.0.0-alpha.jar
 							</additionalClasspathElement>
