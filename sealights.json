@@ -1,0 +1,12 @@
+{
+  "customerId": "Proofpoint",
+  "appName": "Platform",
+  "buildName": "1.1.2",
+  "branchName": "main/master",
+  "server": "https://dev-nadav-gw.sealights.co/api",
+  "interval": 10000,
+  "enabled": true,
+  "environmentName": "My Unit Tests Environment",
+  "maxQueueSize": 1,
+  "instrumentedPackages": ["com.proofpoint"]
+}
