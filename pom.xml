@@ -93,8 +93,8 @@
 							</additionalClasspathElement>
 						</additionalClasspathElements>
 						<argLine> 
-							<!-- Update the parameters in the next line -->
-							-Dsl.log.enabled=true -Dsl.log.toConsole=true -Dsl.config.file="../sealights.json" -javaagent:"${user.home}/.m2/repository/io/sealights/on-premise/agents/sl-test-listener/1.0.0-alpha/sl-test-listener-1.0.0-alpha.jar"
+							<!-- Update the parameters in the next line. Here we assume that the sealights.json file is at the root of the project, next to the top most *.pom file. -->
+							-Dsl.config.file="../sealights.json" -javaagent:"${user.home}/.m2/repository/io/sealights/on-premise/agents/sl-test-listener/1.0.0-alpha/sl-test-listener-1.0.0-alpha.jar"
 						</argLine>
 						<properties>
 							<property>

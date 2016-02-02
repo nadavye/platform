@@ -1,8 +1,8 @@
 {
   "customerId": "Proofpoint",
   "appName": "Platform",
-  "buildName": "1.1.2",
-  "branchName": "main/master",
+  "buildName": "11",
+  "branchName": "origin/master ",
   "server": "https://dev-nadav-gw.sealights.co/api",
   "interval": 10000,
   "enabled": true,
