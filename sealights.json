@@ -1,12 +1,6 @@
 {
-  "customerId": "Proofpoint",
-  "appName": "Platform",
-  "buildName": "15",
-  "branchName": "origin/master ",
-  "server": "https://dev-nadav-gw.sealights.co/api",
-  "interval": 10000,
-  "enabled": true,
-  "environmentName": "My Unit Tests Environment",
-  "maxQueueSize": 1,
-  "instrumentedPackages": ["com.proofpoint"]
+  "customerId": "ProofPoint",
+  "appName": "platform",
+  "server": "https://prod-proofpoint-gw.sealights.co/api",
+  "includes":"com.proofpoint*"
 }

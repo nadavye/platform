@@ -1,0 +1,8 @@
+//Enabling logs
+//-Dsl.log.enabled=true -Dsl.log.toConsole=true -Dsl.log.level=info
+
+//Configure the build scanner
+java -jar C:\Temp\sealights-java-1.2.153\artifacts\sl-build-scanner-1.2.153.jar -config -customerid proofpoint -server https://dev-java-gw.sealights.co/api
+
+//Scan (TODO:verify that all the options are correct)
+java -jar C:\Temp\sealights-java-1.2.153\artifacts\sl-build-scanner-1.2.153.jar -scan -workspacepath .\artifacts -r -branch master -build "1" -appname platform -pi "com.proofpoint.*"

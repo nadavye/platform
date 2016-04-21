@@ -62,7 +62,8 @@
 
         <!-- extended checks -->
         <platform.check.skip-findbugs>${platform.check.skip-extended}</platform.check.skip-findbugs>
-        <platform.check.skip-jacoco>${platform.check.skip-extended}</platform.check.skip-jacoco>
+        <!--<platform.check.skip-jacoco>${platform.check.skip-extended}</platform.check.skip-jacoco>-->
+		<platform.check.skip-jacoco>true</platform.check.skip-jacoco>
 
         <platform.check.fail-all>true</platform.check.fail-all>
         <platform.check.fail-basic>${platform.check.fail-all}</platform.check.fail-basic>
@@ -415,6 +416,7 @@
                     </configuration>
                 </plugin>
 
+				
                 <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
@@ -426,13 +428,26 @@
                                 <goal>prepare-agent</goal>
                             </goals>
                         </execution>
-                        <execution>
+						<execution>
+						<id>post-unit-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+						<configuration>
+							<!-- Sets the path to the file which contains the execution data. -->
+							<dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>
+							<!-- Sets the output directory for the code coverage report. -->
+							<outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
+						</configuration>
+					</execution>
+                        <!--<execution>
                             <id>report</id>
                             <phase>prepare-package</phase>
                             <goals>
                                 <goal>report</goal>
                             </goals>
-                        </execution>
+                        </execution>-->
                     </executions>
                     <configuration>
                         <skip>${platform.check.skip-jacoco}</skip>
@@ -507,6 +522,7 @@
                 <artifactId>maven-duplicate-finder-plugin</artifactId>
             </plugin>
 
+			
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -516,6 +532,47 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
             </plugin>
+					<plugin>
+					<groupId>io.sealights.on-premise.agents.plugin</groupId>
+					<artifactId>sealights-maven-plugin</artifactId>
+					<version>1.0.0</version>
+
+					<configuration>
+						<customerid>proofpoint-2</customerid>
+						<server>http://52.50.229.157:8080/api</server>
+						<appName>customerstore</appName>
+						<branch>origin/sealights</branch>
+						<build>133</build>
+						<moduleName>${project.artifactId}</moduleName>
+										
+						<packagesincluded>*com.*</packagesincluded>
+						<proxy>http://127.0.0.1:8888</proxy>
+						<filesincluded>*.class</filesincluded>
+						<recursive>true</recursive>
+						<logEnabled>true</logEnabled>
+						<logToFile>true</logToFile>
+						<logLevel>debug</logLevel>
+						<logFolder>c:\temp\logs</logFolder>
+
+						<buildScannerJar>C:\Work\Projects\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-1.0.0-SNAPSHOT-jar-with-dependencies.jar</buildScannerJar>
+						<!--<testListenerJar>@@PATH@@</testListenerJar>-->
+					</configuration>
+					<executions>
+					  <execution>
+						<inherited>true</inherited>
+						<id>a1</id>
+						<goals>
+						  <goal>build-scanner</goal>
+						</goals>
+					  </execution>
+					  <execution>
+						<id>a2</id>
+						<goals>
+						  <goal>test-listener</goal>
+						</goals>
+					  </execution>
+					</executions>
+				</plugin>				
         </plugins>
     </build>
 

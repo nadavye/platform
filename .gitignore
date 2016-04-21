@@ -1,7 +1,11 @@
+*.jar
 *.iml
 *.ipr
 *.iws
+*footprints*
+logs/
 target/
+node_modules/
 var/
 pom.xml.versionsBackup
 test-output/
