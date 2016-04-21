@@ -532,6 +532,7 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
             </plugin>
+			<!--
 					<plugin>
 					<groupId>io.sealights.on-premise.agents.plugin</groupId>
 					<artifactId>sealights-maven-plugin</artifactId>
@@ -555,7 +556,7 @@
 						<logFolder>c:\temp\logs</logFolder>
 
 						<buildScannerJar>C:\Work\Projects\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-1.0.0-SNAPSHOT-jar-with-dependencies.jar</buildScannerJar>
-						<!--<testListenerJar>@@PATH@@</testListenerJar>-->
+						testListenerJar>@@PATH@@</testListenerJar>
 					</configuration>
 					<executions>
 					  <execution>
@@ -572,7 +573,7 @@
 						</goals>
 					  </execution>
 					</executions>
-				</plugin>				
+				</plugin>		-->		
         </plugins>
     </build>
 
